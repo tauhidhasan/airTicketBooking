@@ -1,21 +1,19 @@
-
-function handleTicketChange(whatTicket,isIncrease){
-const ClassInput= document.getElementById(whatTicket + 'ClassQuantity');
-const ClassCount=parseInt(ClassInput.value);
-let ClassNewCount=ClassCount;
-if(isIncrease == true){
-ClassNewCount=ClassCount + 1;
-
-}if(isIncrease == false && economyClassCount >0){
-ClassNewCount=ClassCount - 1;
+function handleTicketChange(whatTicket, isIncrease) {
+  const ClassInput = document.getElementById(whatTicket + "ClassQuantity");
+  const ClassCount = parseInt(ClassInput.value);
+  let ClassNewCount = ClassCount;
+  if (isIncrease == true) {
+    ClassNewCount = ClassCount + 1;
+  }
+  if (isIncrease == false && economyClassCount > 0) {
+    ClassNewCount = ClassCount - 1;
+  }
+  ClassInput.value = ClassNewCount;
+  calculateTotal();
 }
-ClassInput.value=ClassNewCount;
-calculateTotal();
 
-
-}
-function setTextHtml(value, id){
-document.getElementById(id).innerText = value;
+function setTextHtml(value, id) {
+  document.getElementById(id).innerText = value;
 }
 
 // //First Class Function Start
@@ -53,34 +51,34 @@ document.getElementById(id).innerText = value;
 // document.getElementById(id).innerText = value;
 // }
 
-function calculateTotal(){
-const firstClassCost= parseInt(document.getElementById('firstClassQuantity').value)*150;
-const economyClassCost= parseInt(document.getElementById('economyClassQuantity').value)*100;
+function calculateTotal() {
+  const firstClassCost =
+    parseInt(document.getElementById("firstClassQuantity").value) * 150;
+  const economyClassCost =
+    parseInt(document.getElementById("economyClassQuantity").value) * 100;
 
-const subTotal = firstClassCost + economyClassCost;
-const vat = subTotal * 0.1;
-const grandTotal = subTotal + vat;
+  const subTotal = firstClassCost + economyClassCost;
+  const vat = subTotal * 0.1;
+  const grandTotal = subTotal + vat;
 
-setTextHtml(subTotal, "subTotal")
-setTextHtml(vat, "vat")
-setTextHtml(grandTotal, "total")
+  setTextHtml(subTotal, "subTotal");
+  setTextHtml(vat, "vat");
+  setTextHtml(grandTotal, "total");
 }
 
-document.getElementById('bookBtn').addEventListener('click',function () {
-   bookVanish.style.display="none"
-  nav.style.display="none"
-   welcome_area.style.display="block"
-    
-})
-
-
-  
-
-function myFunction() {
-  var txt;
-  if (confirm("Are You Sure!You Wanna Buy This Ticket")) {
-    txt = "You pressed OK!";
-  } else {
-    txt = "You pressed Cancel!";
+function booking() {
+  const valid = parseInt(document.getElementById("subTotal").innerText);
+  if (valid < 1) {
+    alert("Please select minimum 1 ticket");
+    return false;
   }
+  document.getElementById("bookVanish").style.display = "none";
+  document.getElementById("welcome_area").style.display = "block";
 }
+
+const returnHome = document
+  .getElementById("returnHome")
+  .addEventListener("click", function () {
+    document.getElementById("bookVanish").style.display = "block";
+    document.getElementById("welcome_area").style.display = "none";
+  });
