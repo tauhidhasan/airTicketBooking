@@ -1,19 +1,21 @@
 //Increment Decrement Function
+
 function handleTicketChange(whatTicket, isIncrease) {
-  const ClassInput = document.getElementById(whatTicket + "ClassQuantity");
-  const ClassCount = parseInt(ClassInput.value);
-  let ClassNewCount = ClassCount;
-
+    const ClassInput = document.getElementById(whatTicket + 'ClassQuantity');
+    const ClassCount = parseInt(ClassInput.value);
+    let ClassNewCount = ClassCount;
     if (isIncrease == true) {
-      ClassNewCount = ClassCount + 1;
-    }
-    if (isIncrease == false && economyClassCount > 0) {
-      ClassNewCount = ClassCount - 1;
-    }
+        ClassNewCount = ClassCount + 1;
 
-  ClassInput.value = ClassNewCount;
-  calculateTotal();
+    }
+    if (isIncrease == false && ClassCount > 0) {
+        ClassNewCount = ClassCount - 1;
+    }
+    ClassInput.value = ClassNewCount;
+     calculateTotal();
+
 }
+
 
 //Total Sub Total Vat Function
 function setTexTotHtml(value, id) {
