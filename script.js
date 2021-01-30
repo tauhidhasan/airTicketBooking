@@ -10,7 +10,7 @@ function handleTicketChange(whatTicket, isIncrease) {
     if (isIncrease == false && economyClassCount > 0) {
       ClassNewCount = ClassCount - 1;
     }
-    
+
   ClassInput.value = ClassNewCount;
   calculateTotal();
 }
@@ -26,7 +26,7 @@ function calculateTotal() {
     parseInt(document.getElementById("economyClassQuantity").value) * 100;
 
     const subTotal = firstClassCost + economyClassCost;
-    const vat = subTotal * 0.1;
+    const vat = subTotal * 0.1;//10% vat =10/100=0.1
     const grandTotal = subTotal + vat;
 
     setTexTotHtml(subTotal, "subTotal");
