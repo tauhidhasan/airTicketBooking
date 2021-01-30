@@ -12,6 +12,7 @@ ClassNewCount=ClassCount - 1;
 ClassInput.value=ClassNewCount;
 calculateTotal();
 
+
 }
 function setTextHtml(value, id){
 document.getElementById(id).innerText = value;
@@ -71,6 +72,10 @@ document.getElementById('bookBtn').addEventListener('click',function () {
    welcome_area.style.display="block"
     
 })
+
+
+  
+
 function myFunction() {
   var txt;
   if (confirm("Are You Sure!You Wanna Buy This Ticket")) {
